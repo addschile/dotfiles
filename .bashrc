@@ -1,7 +1,7 @@
 # thanks apple
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-export DOTFILES="$HOME/.dotfiles/"
+export DOTFILES="$HOME/dotfiles/"
 
 # Expand the history size
 
