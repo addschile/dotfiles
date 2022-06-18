@@ -1,0 +1,60 @@
+######################
+### useful aliases ###
+######################
+
+export BASHRC="$DOTFILES/.bashrc"
+export ALIASES="$DOTFILES/.aliases"
+export PROJECTS="$HOME/Projects/"
+alias cdv="cd $VIMCONFIG"
+
+### dotfiles related stuff
+# resource my stuff
+alias rsrc="source $HOME/.bash_profile"
+# cd to dotfiles
+alias cdot="cd $DOTFILES"
+# list dotfiles
+alias lsa="ls -A"
+
+# neovim
+alias vi="nvim"
+#alias vi="/usr/local/Cellar/vim/8.2.5100/bin/vim"
+
+### working aliases
+# remove trailing whitespace
+alias rmwsp="sed -i 's/[ \t]*$//'"
+
+### git aliases
+# git pull
+alias gp="git pull"
+# git fetch origin
+alias gfo="git fetch origin"
+# git merge origin master
+alias gmo="git merge origin master"
+# git fetch and merge
+alias gfm="git fetch origin && git merge origin master"
+# git checkout
+alias gc="git checkout"
+# git checkout master
+alias gcm="git checkout master"
+# git checkout and make a new branch
+alias gcb="git checkout -b"
+# see the branches
+alias gb="git branch"
+# delete a branch
+alias gbd="git branch -D"
+# stash changes
+alias gs="git stash save"
+# list stashes
+alias gsl="git stash list"
+# apply stash
+alias gsa="git stash apply"
+# drop stash
+alias gsd="git stash drop"
+# git diff full index
+alias gd="git diff --full-index"
+# git diff name only
+alias gdn="git diff --name-only"
+# git status
+alias gstat="git status"
+# git log
+alias gl="git log"

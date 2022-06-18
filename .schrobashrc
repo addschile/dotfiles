@@ -1,0 +1,12 @@
+# environment variables
+export SCHRODINGER=$HOME/builds/latest/build
+export SCHRODINGER_SRC=$HOME/builds/latest/source
+export SCHRODINGER_SRC_LINKS=$HOME/builds/latest/links
+export SCHRODINGER_LIB=$HOME/builds/software/lib
+
+# basically "alias" them to make them shorter
+export SB=$SCHRODINGER
+export SS=$SCHRODINGER_SRC
+
+# import schrodinger aliases
+source .schroaliases

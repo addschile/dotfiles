@@ -1,0 +1,4 @@
+## cd into a dir and ls
+#function cdl() {
+#         cd "$@" && ls
+#}
