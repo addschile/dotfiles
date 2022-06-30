@@ -5,6 +5,7 @@
 export BASHRC="$DOTFILES/.bashrc"
 export ALIASES="$DOTFILES/.aliases"
 export PROJECTS="$HOME/Projects/"
+export VIMCONFIG="$DOTFILES/.config/"
 alias cdv="cd $VIMCONFIG"
 
 ### dotfiles related stuff
