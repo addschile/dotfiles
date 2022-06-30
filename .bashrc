@@ -34,7 +34,7 @@ yellow=$(tput setaf 3)
 reset=$(tput sgr0)
 bold=$(tput bold)
 
-source .git_prompt.sh
+source $DOTFILES/.git_prompt.sh
 
 PS1='\[$yellow$bold\]\W\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 
