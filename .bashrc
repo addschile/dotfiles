@@ -52,4 +52,3 @@ source $DOTFILES/.functions
 #source $DOTFILES/.schrobashrc
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. "$HOME/.cargo/env"
