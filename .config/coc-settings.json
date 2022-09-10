@@ -1,5 +1,8 @@
 {
-    "npm.binPath": "/usr/local/bin/npm",
+    "npm.binPath": "/usr/bin/npm",
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "python.formatting.provider": "black",
+    "python.sortImports.path": "isort",
     "languageserver": {
         "ccls": {
             "command": "ccls",
