@@ -18,10 +18,6 @@ Plug 'mhinz/vim-signify'
 Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-fugitive'
 
-" file tree
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-
 " indents
 Plug 'lukas-reineke/indent-blankline.nvim'
 

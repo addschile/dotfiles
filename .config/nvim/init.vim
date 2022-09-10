@@ -8,7 +8,6 @@ runtime treesitter.vim
 runtime signify.vim
 runtime todo.vim
 runtime neogit.vim
-runtime nvimtree.vim
 runtime indent-blankline.vim
 
 " vim based settings
