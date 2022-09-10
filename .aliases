@@ -6,11 +6,21 @@ export BASHRC="$DOTFILES/.bashrc"
 export ALIASES="$DOTFILES/.aliases"
 export PROJECTS="$HOME/Projects/"
 export VIMCONFIG="$DOTFILES/.config/"
+export EIGENDIR="$HOME/programming/eigen/"
+export BOOSTDIR="$HOME/programming/boost_1_79_0/"
+export GOPATH="/usr/local/go/"
+export GOBINPATH="$GOPATH/bin/"
+
 alias cdv="cd $VIMCONFIG"
 
 ### dotfiles related stuff
 # resource my stuff
-alias rsrc="source $HOME/.bash_profile"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias rsrc="source $HOME/.profile"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # FIXME eventually i want to transition over to zsh
+    alias rsrc="source $HOME/.bash_profile"
+fi
 # cd to dotfiles
 alias cdot="cd $DOTFILES"
 # list dotfiles
@@ -18,7 +28,11 @@ alias lsa="ls -A"
 
 # neovim
 alias vi="nvim"
-#alias vi="/usr/local/Cellar/vim/8.2.5100/bin/vim"
+alias vim="nvim"
+
+### python aliases
+alias py="python3"
+alias ipy="ipython3"
 
 ### working aliases
 # remove trailing whitespace
