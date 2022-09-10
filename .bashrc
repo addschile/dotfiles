@@ -48,6 +48,12 @@ source $DOTFILES/.aliases
 # import functions
 source $DOTFILES/.functions
 
+# TODO add something to determine rust/cargo path
+if [ $GOBINPATH ];
+then
+    export PATH=$PATH:$GOBINPATH
+fi
+
 # import functions
 #source $DOTFILES/.schrobashrc
 
