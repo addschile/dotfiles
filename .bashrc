@@ -58,3 +58,5 @@ fi
 #source $DOTFILES/.schrobashrc
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source "$HOME/.cargo/env"

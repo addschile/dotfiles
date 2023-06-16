@@ -1,5 +1,5 @@
 " Set node path so environments don't reset it
-let g:coc_node_path = '/usr/local/bin/node'
+let g:coc_node_path = '/usr/bin/node'
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim

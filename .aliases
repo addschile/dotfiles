@@ -6,10 +6,13 @@ export BASHRC="$DOTFILES/.bashrc"
 export ALIASES="$DOTFILES/.aliases"
 export PROJECTS="$HOME/Projects/"
 export VIMCONFIG="$DOTFILES/.config/"
-export EIGENDIR="$HOME/programming/eigen/"
-export BOOSTDIR="$HOME/programming/boost_1_79_0/"
-export GOPATH="/usr/local/go/"
-export GOBINPATH="$GOPATH/bin/"
+export EIGENDIR="$HOME/programming/libraries/eigen/"
+export BOOSTDIR="$HOME/programming/libraries/boost_1_79_0/"
+export FMTLIBDIR="$HOME/programming/libraries/fmt/include/"
+export GOPATH="/usr/local/go"
+export GOBINPATH="$GOPATH/bin"
+export GCC11INCLUES="-I/usr/include/c++/11/ -I/usr/include/x86_64-linux-gnu/c++/11"
+export GCC12INCLUES="-I/usr/include/c++/12/ -I/usr/include/x86_64-linux-gnu/c++/12"
 
 alias cdv="cd $VIMCONFIG"
 
@@ -26,11 +29,18 @@ alias cdot="cd $DOTFILES"
 # list dotfiles
 alias lsa="ls -A"
 
-# neovim
+### neovim
 alias vi="nvim"
 alias vim="nvim"
+alias vimdiff="nvim -d"
+
+### CUDA aliases
+alias nvcc="/usr/local/cuda/bin/nvcc"
+alias cuclang++="clang++ --cuda-gpu-arch=sm_86 -L /usr/local/cuda/lib64 -lcudart_static -ldl -lrt -pthread -stdlib=libc++ -std=c++20 -O3 -c"
 
 ### python aliases
+alias python="python3"
+alias ipython="ipython3"
 alias py="python3"
 alias ipy="ipython3"
 
@@ -73,3 +83,7 @@ alias gdn="git diff --name-only"
 alias gstat="git status"
 # git log
 alias gl="git log"
+# git add $(gdn)
+alias gadn="git add $(gdn)"
+# git commit -m
+alias gmit="git commit -m"
