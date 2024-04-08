@@ -1,0 +1,7 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "bash-git-prompt"
+brew "fzf"
+brew "neovim"
+brew "node"
+brew "ripgrep"

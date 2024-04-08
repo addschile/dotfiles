@@ -8,15 +8,11 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-  -- or                            , branch = '0.1.x',
+    'nvim-telescope/telescope.nvim',
+    --tag = '0.1.x',
+    branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-
--- TODO do i want this
-  use({ 'rose-pine/neovim', as = 'rose-pine' })
-
-  vim.cmd('colorscheme rose-pine')
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
@@ -49,8 +45,15 @@ return require('packer').startup(function(use)
   }
 }
 
-use("lukas-reineke/lsp-format.nvim")
-
-use ('ranjithshegde/ccls.nvim')
+  use({ "gruvbox-community/gruvbox" })                                          
+                                                                                
+  vim.cmd('colorscheme gruvbox')                                                
+                                                                                
+  use({ "github/copilot.vim" })                                                 
+  -- Automatically set up your configuration after cloning packer.nvim          
+  -- Put this at the end after all plugins                                      
+  if packer_bootstrap then                                                      
+    require('packer').sync()                                                    
+  end
 
 end)

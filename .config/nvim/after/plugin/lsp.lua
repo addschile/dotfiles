@@ -1,5 +1,6 @@
 local lsp = require('lsp-zero')
 
+
 lsp.preset("recommended")
 lsp.ensure_installed({
 	'bashls',
@@ -8,6 +9,8 @@ lsp.ensure_installed({
 	'fortls',
 	'jsonls',
 	'pyright',
+--	'pylsp',
+--	'ruff_lsp',
 	'rust_analyzer',
 	'yamlls'
 
@@ -23,7 +26,7 @@ end)
 
 lsp.format_on_save({
     servers = {
-        ['pyright'] = {'python'},
+--        ['pyright'] = {'python'},
         ['rust_analyzer'] = {'rust'},
     }
 })
@@ -33,11 +36,15 @@ lsp.setup()
 
 local lspconfig = require('lspconfig')
 
-lspconfig.clangd.setup {}
+lspconfig.clangd.setup {
+    cmd={'/home/schile/.local/share/nvim/mason/bin/clangd', '--query-driver=/usr/bin/gcc', '--log=verbose'}
+}
 lspconfig.cmake.setup {}
 lspconfig.fortls.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.pyright.setup {}
+--lspconfig.pylsp.setup {}
+--lspconfig.ruff_lsp.setup {}
 lspconfig.rust_analyzer.setup {}
 lspconfig.yamlls.setup {}
 
@@ -50,3 +57,5 @@ cmp.setup({
     ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
   }
 })
+
+vim.lsp.set_log_level("off")

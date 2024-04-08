@@ -4,26 +4,20 @@
 
 export BASHRC="$DOTFILES/.bashrc"
 export ALIASES="$DOTFILES/.aliases"
-export PROJECTS="$HOME/Projects/"
-export VIMCONFIG="$DOTFILES/.config/"
-export EIGENDIR="$HOME/programming/libraries/eigen/"
-export BOOSTDIR="$HOME/programming/libraries/boost_1_79_0/"
-export FMTLIBDIR="$HOME/programming/libraries/fmt/include/"
-export GOPATH="/usr/local/go"
-export GOBINPATH="$GOPATH/bin"
-export GCC11INCLUES="-I/usr/include/c++/11/ -I/usr/include/x86_64-linux-gnu/c++/11"
-export GCC12INCLUES="-I/usr/include/c++/12/ -I/usr/include/x86_64-linux-gnu/c++/12"
+export VIMCONFIG="$DOTFILES/.config/nvim"
 
 alias cdv="cd $VIMCONFIG"
 
 ### dotfiles related stuff
 # resource my stuff
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    alias rsrc="source $HOME/.profile"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # FIXME eventually i want to transition over to zsh
-    alias rsrc="source $HOME/.bash_profile"
-fi
+alias rsrc="source $HOME/.bash_profile"
+#if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#    alias rsrc="source $HOME/.profile"
+#elif [[ "$OSTYPE" == "darwin"* ]]; then
+#    # FIXME eventually i want to transition over to zsh
+#    alias rsrc="source $HOME/.bash_profile"
+#fi
+
 # cd to dotfiles
 alias cdot="cd $DOTFILES"
 # list dotfiles
@@ -33,10 +27,15 @@ alias lsa="ls -A"
 alias vi="nvim"
 alias vim="nvim"
 alias vimdiff="nvim -d"
+if [ -f /etc/redhat-release ]; then
+    alias vi="$HOME/nvim-linux64/bin/nvim"
+    alias vim="$HOME/nvim-linux64/bin/nvim"
+    alias vimdiff="$HOME/nvim-linux64/bin/nvim -d"
+fi
 
-### CUDA aliases
-alias nvcc="/usr/local/cuda/bin/nvcc"
-alias cuclang++="clang++ --cuda-gpu-arch=sm_86 -L /usr/local/cuda/lib64 -lcudart_static -ldl -lrt -pthread -stdlib=libc++ -std=c++20 -O3 -c"
+#### CUDA aliases
+#alias nvcc="/usr/local/cuda/bin/nvcc"
+#alias cuclang++="clang++ --cuda-gpu-arch=sm_86 -L /usr/local/cuda/lib64 -lcudart_static -ldl -lrt -pthread -stdlib=libc++ -std=c++20 -O3 -c"
 
 ### python aliases
 alias python="python3"
@@ -47,6 +46,12 @@ alias ipy="ipython3"
 ### working aliases
 # remove trailing whitespace
 alias rmwsp="sed -i 's/[ \t]*$//'"
+
+### tmux aliases
+alias tns="tmux new-session -s"
+alias ta="tmux attach"
+alias td="tmux detach"
+alias tls="tmux list-sessions"
 
 ### git aliases
 # git pull
@@ -84,6 +89,6 @@ alias gstat="git status"
 # git log
 alias gl="git log"
 # git add $(gdn)
-alias gadn="git add $(gdn)"
+alias gadn='git add $(gdn)'
 # git commit -m
 alias gmit="git commit -m"

@@ -1,7 +1,11 @@
+if [[ -n $TMUX ]]; then
+    TMOUT=0
+fi
+
 # thanks apple
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-export DOTFILES="$HOME/dotfiles/"
+export DOTFILES=$HOME/dotfiles
 
 # Expand the history size
 
@@ -34,9 +38,16 @@ yellow=$(tput setaf 3)
 reset=$(tput sgr0)
 bold=$(tput bold)
 
-source $DOTFILES/.git_prompt.sh
+export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
 
-PS1='\[$yellow$bold\]\W\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
+if [ -f "$HOMEBREW_PREFIX/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+     __GIT_PROMPT_DIR="$HOMEBREW_PREFIX/opt/bash-git-prompt/share"
+     source "$HOMEBREW_PREFIX/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
+#source $DOTFILES/.git_prompt.sh
+
+#PS1='\[$yellow$bold\]\W\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 
 # looks stuff
 export CLICOLOR=1
@@ -48,15 +59,11 @@ source $DOTFILES/.aliases
 # import functions
 source $DOTFILES/.functions
 
-# TODO add something to determine rust/cargo path
-if [ $GOBINPATH ];
-then
-    export PATH=$PATH:$GOBINPATH
+# import schrodinger stuff
+if [ -f $DOTFILES/.schrobashrc ]; then
+    source $DOTFILES/.schrobashrc
 fi
 
-# import functions
-#source $DOTFILES/.schrobashrc
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-source "$HOME/.cargo/env"
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# 
+# source "$HOME/.cargo/env"
