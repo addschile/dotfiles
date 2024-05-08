@@ -45,8 +45,7 @@ return require('packer').startup(function(use)
   }
 }
 
-  use({ "gruvbox-community/gruvbox" })                                          
-                                                                                
+  use { "ellisonleao/gruvbox.nvim" }
   vim.cmd('colorscheme gruvbox')                                                
                                                                                 
   use({ "github/copilot.vim" })                                                 
