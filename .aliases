@@ -92,3 +92,5 @@ alias gl="git log"
 alias gadn='git add $(gdn)'
 # git commit -m
 alias gmit="git commit -m"
+# git log by tags
+alias glt="git log --no-walk --tags"

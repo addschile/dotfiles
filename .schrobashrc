@@ -1,0 +1,16 @@
+# environment variables
+export SCHRODINGER=/scr/schile/builds/latest/build
+export SCHRODINGER_SRC=/scr/schile/builds/latest/source
+#export SCHRODINGER_LIB=/software/lib
+export SCHRODINGER_LIB=/scr/software/lib
+
+# cuda compute cabilities
+export BUILD_COMPUTE_CAPABILITIES=89
+
+# basically "alias" them to make them shorter
+export SB=$SCHRODINGER
+export SS=$SCHRODINGER_SRC
+
+# import schrodinger aliases and functions
+source $DOTFILES/.schroaliases
+source $DOTFILES/.schrofunctions
