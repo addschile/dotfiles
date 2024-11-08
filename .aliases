@@ -9,8 +9,8 @@ export VIMCONFIG="$DOTFILES/.config/"
 export EIGENDIR="$HOME/programming/libraries/eigen/"
 export BOOSTDIR="$HOME/programming/libraries/boost_1_79_0/"
 export FMTLIBDIR="$HOME/programming/libraries/fmt/include/"
-export GOPATH="/usr/local/go"
-export GOBINPATH="$GOPATH/bin"
+# export GOPATH="/usr/local/go"
+# export GOBINPATH="$GOPATH/bin"
 export GCC11INCLUES="-I/usr/include/c++/11/ -I/usr/include/x86_64-linux-gnu/c++/11"
 export GCC12INCLUES="-I/usr/include/c++/12/ -I/usr/include/x86_64-linux-gnu/c++/12"
 
@@ -18,12 +18,18 @@ alias cdv="cd $VIMCONFIG"
 
 ### dotfiles related stuff
 # resource my stuff
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    alias rsrc="source $HOME/.profile"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # FIXME eventually i want to transition over to zsh
-    alias rsrc="source $HOME/.bash_profile"
-fi
+
+function rsrc {
+    local curr_dir=$(pwd)
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        source $HOME/.profile
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        # FIXME eventually i want to transition over to zsh
+        source $HOME/.bash_profile
+    fi
+    cd $curr_dir
+}
+
 # cd to dotfiles
 alias cdot="cd $DOTFILES"
 # list dotfiles
@@ -84,6 +90,9 @@ alias gstat="git status"
 # git log
 alias gl="git log"
 # git add $(gdn)
-alias gadn="git add $(gdn)"
+alias gadn='git add $(gdn)'
 # git commit -m
 alias gmit="git commit -m"
+
+### vtune aliases
+alias vtune="/opt/intel/oneapi/vtune_profiler/2023.1.0/MacOS/vtune-gui"
