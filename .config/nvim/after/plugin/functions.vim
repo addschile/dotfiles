@@ -39,5 +39,5 @@ augroup FORMATBUFFER
     autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.cxx,*.hxx,*.cu,*.cuh :call ClangFormatBuffer()
     autocmd BufWritePost *.py,*.pyx :call PythonYapfFormatBuffer()
     "autocmd BufWritePost *.py,*.pyx :call PythonBlackFormatBuffer()
-    autocmd BufWritePost *.py,*.pyx :call PythonIsortFormatBuffer()
+    "autocmd BufWritePost *.py,*.pyx :call PythonIsortFormatBuffer()
 augroup END
