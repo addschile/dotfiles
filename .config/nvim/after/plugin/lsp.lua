@@ -19,6 +19,10 @@ lsp.ensure_installed({
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true)
+  end
+
   vim.keymap.set("n", "I", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "K", "<C-u>")
 
