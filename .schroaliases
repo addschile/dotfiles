@@ -16,8 +16,8 @@ export WORKING=$SCRATCH/working
 export JOBTMPDIR='/scr/schile/jobs'
 
 ### docker container stuff
-alias rocky='cd && make -C buildenvs/rocky8 shell'
-alias centos='cd && make -C buildenvs/centos7 shell'
+alias rocky='cd && make -C core-build-container/rocky8 shell'
+alias centos='cd && make -C core-build-container/centos7 shell'
 
 ### stu aliases
 stu_extract='$SCHRODINGER/utilities/stu_extract'
@@ -47,6 +47,8 @@ alias srun='$SCHRODINGER/run'
 alias cdb='cd $SCHRODINGER'
 # cd to source directory
 alias cds='cd $SCHRODINGER_SRC'
+# cd to working dir
+alias cdw='cd $WORKING'
 
 ### schrodinger suite commands
 #alias maestro="/opt/schrodinger/suites*/maestro"
