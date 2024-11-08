@@ -45,6 +45,7 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # import aliases
 source $DOTFILES/.aliases
 
+
 # import functions
 source $DOTFILES/.functions
 
@@ -60,3 +61,5 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source "$HOME/.cargo/env"
+
+source $DOTFILES/.schrobashrc

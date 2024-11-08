@@ -7,7 +7,7 @@ lsp.ensure_installed({
 	'cmake',
 	'fortls',
 	'jsonls',
-	'pyright',
+	'pylsp',
 	'rust_analyzer',
 	'yamlls'
 
@@ -15,29 +15,34 @@ lsp.ensure_installed({
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
-
-  vim.keymap.set("n", "I", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "K", "<C-u>")
-
+--  vim.keymap.set("n", "I", function() vim.lsp.buf.hover() end, opts)
+--  vim.keymap.set("n", "K", "<C-u>")
 end)
 
-lsp.format_on_save({
-    servers = {
-        ['pyright'] = {'python'},
-        ['rust_analyzer'] = {'rust'},
-    }
-})
-
+-- vim.lsp.inlay_hint(0, true)
 
 lsp.setup()
 
 local lspconfig = require('lspconfig')
 
+lspconfig.bashls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.cmake.setup {}
 lspconfig.fortls.setup {}
 lspconfig.jsonls.setup {}
-lspconfig.pyright.setup {}
+lspconfig.pylsp.setup {
+    plugins = {
+        flake8 = {
+            enabled = true,
+            ignore = { 'E501', 'E231' },
+            maxLineLength = 120
+        },
+        pycodestyle = {
+            enabled = false,
+            maxLineLength = 120
+        }
+    }
+}
 lspconfig.rust_analyzer.setup {}
 lspconfig.yamlls.setup {}
 

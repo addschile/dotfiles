@@ -20,3 +20,4 @@ vim.opt.completeopt = menuone,noinsert,noselect
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
+vim.opt.termguicolors = true
