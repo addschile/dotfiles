@@ -1,7 +1,6 @@
 # environment variables
 export SCHRODINGER=/scr/schile/builds/latest/build
 export SCHRODINGER_SRC=/scr/schile/builds/latest/source
-#export SCHRODINGER_LIB=/software/lib
 export SCHRODINGER_LIB=/scr/software/lib
 
 # cuda compute cabilities
