@@ -1,0 +1,24 @@
+_is_mac=$(uname -s | grep Darwin)
+
+if [[ -n "$_is_mac" ]]; then
+    export USERPATH=/Users
+else
+    export USERPATH=/scr
+fi
+
+# environment variables
+export SCHRODINGER=$USERPATH/$USER/builds/latest/build/
+export SCHRODINGER_SRC=$USERPATH/$USER/builds/latest/source
+export SCHRODINGER_SRC_LINKS=$USERPATH/$USER/builds/latest/links
+export SCHRODINGER_LIB=$USERPATH/$USER/builds/software/lib
+
+# cuda compute cabilities
+export BUILD_COMPUTE_CAPABILITIES=75
+
+# basically "alias" them to make them shorter
+export SB=$SCHRODINGER
+export SS=$SCHRODINGER_SRC
+
+# import schrodinger aliases and functions
+source .schroaliases
+source .schrofunctions

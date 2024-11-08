@@ -1,0 +1,34 @@
+_is_mac=$(uname -s | grep Darwin)
+
+# Easily switch between builds:
+function select_build {
+    [[ -n "$1" ]] || echo "select-build needs an argument (e.g. select-build 2021-3)"
+
+    if [[ -n "$_is_mac" ]]; then
+        #export SCHRODINGER_SRC=/Users/$USER/builds/$1/source
+        export SCHRODINGER=$USERPATH/$USER/builds/latest/$1
+        #export SCHRODINGER_LIB=/Users/$USER/builds/software/lib
+    else
+        #export SCHRODINGER_SRC=/scr/$USER/builds/$1/source
+        export SCHRODINGER=$USERPATH/$USER/builds/latest/$1
+        #export SCHRODINGER_LIB=/software/lib
+    fi
+}
+
+function reset_build {
+    if [[ -n "$_is_mac" ]]; then
+        #export SCHRODINGER_SRC=/Users/$USER/builds/$1/source
+        export SCHRODINGER=$USERPATH/$USER/builds/latest/build
+        #export SCHRODINGER_LIB=/Users/$USER/builds/software/lib
+    else
+        #export SCHRODINGER_SRC=/scr/$USER/builds/$1/source
+        export SCHRODINGER=$USERPATH/$USER/builds/latest/build
+        #export SCHRODINGER_LIB=/software/lib
+    fi
+}
+
+function get_fix() {
+bld=${1:-master}
+curl -s "https://cgit.schrodinger.com/cgit/mmshare/plain/version.h?h=$bld" | grep "#define MMSHARE_VERSION" | awk '{ printf("%03d\n", $3%1000+1) }'
+}
+

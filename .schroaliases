@@ -1,0 +1,111 @@
+##################################
+### useful schrodinger aliases ###
+##################################
+
+# TODO look and play with these
+# to simply search for all filenames in the current directory which contain the given string
+#find $PWD -iname \*${1}\*
+#find $PWD -path /scr/kivenson/chroot6 -prune -o -iname \*${1}\* -print
+# grep -r --exclude-dir=".git" "${1}" ${PWD}
+# gf term_table
+
+export DESK="schile@pdx-desk-l90.schrodinger.com"
+export NEWDESK="schile@desk-lu303.schrodinger.com"
+export ELLERYDESK="schile@nyc-desk-l280.schrodinger.com"
+export HAIDESK="schile@nyc-desk-l118.schrodinger.com"
+export SCHROALIASES=$DOTFILES/.schroaliases
+export WORKING=$HOME/working/
+export ADANODE='schile@ewr-ada-io-lv01.hpc.schrodinger.com'
+
+### stu aliases
+stu_extract='$SCHRODINGER/utilities/stu_extract'
+stu_modify='$SCHRODINGER/utilities/stu_modify'
+
+### schrodinger workflow aliases
+# python
+alias spy='$SCHRODINGER/run python3'
+alias sipy='$SCHRODINGER/run ipython'
+# pytest script
+alias ptest='${SCHRODINGER}/utilities/py.test'
+# code formatting
+#alias yapf="$SCHRODINGER/buildvenv/1f240e2/bin/yapf"
+
+### intel vtune
+alias vtune-gui='/opt/intel/oneapi/vtune_profiler/2023.1.0/MacOS/vtune-gui'
+
+### general environment aliases
+# build script
+alias buildinger='$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh'
+alias build='$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh'
+# source the build environment
+alias sbe='source $SCHRODINGER_SRC/mmshare/build_env'
+alias libup='$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh --without-build mmshare'
+# run schrodinger
+alias srun='$SCHRODINGER/run'
+# run schrodinger scisol scripts
+alias ssrun='$SCHRODINGER/run -FROM scisol'
+alias fep_gui='ssrun fep_plus_gui.py'
+# cd to build directory
+alias cdb='cd $SCHRODINGER'
+# cd to source directory
+alias cds='cd $SCHRODINGER_SRC'
+
+### schrodinger suite commands
+#alias maestro="/opt/schrodinger/suites*/maestro"
+alias maestro='$SCHRODINGER/maestro'
+
+### schrodinger hpc
+# job server command
+alias jsc='$SCHRODINGER/jsc'
+# bolt cluster ssh
+alias bolt="kitty +kitten ssh schile@boltsub2.schrodinger.com"
+# hai nguyen desktop ssh
+alias haicpu='kitty +kitten ssh $HAIDESK'
+# my desktop ssh
+alias mydesk='kitty +kitten ssh $DESK'
+alias newdesk='kitty +kitten ssh $NEWDESK'
+# ellergy desktop ssh
+alias ellerydesk='kitty +kitten ssh $ELLERYDESK'
+
+### mmshare related aliases
+# cd to the mmshare source
+alias cdms='cd $SCHRODINGER_SRC/mmshare/'
+alias cdmdes='cd $SCHRODINGER_SRC/mmshare/python/modules/schrodinger/application/desmond/'
+# cd to the mmshare build
+alias cdmb='cd $SCHRODINGER/mmshare-v*/'
+# cd to the mmshare tests
+alias cdmt='cd $SCHRODINGER/mmshare-v*/python/test'
+# make mmshare - copies python module files to build dir and then cds to test
+# mkm && make test TEST_ARGS='./blah' - does the copy and subsequently makes the tests
+alias mkm='cd $SCHRODINGER/mmshare-v*/python/modules && make schrodinger_modules && cdmt'
+alias mkmt='cd $SCHRODINGER/mmshare-v*/ && make python-install-tests && cdmt'
+alias runmt='cdmt && make test TEST_ARGS=\"-n=auto --post-test application/desmond\"'
+
+### scisol related aliases
+# cd to the scisol source
+alias cdss='cd $SCHRODINGER_SRC/scisol-src/'
+alias cdsfep='cd $SCHRODINGER_SRC/scisol-src/modules/fep/'
+# cd to the scisol build
+alias cdsb='cd $SCHRODINGER/scisol-v*/'
+# cd to the scisol tests
+alias cdst='cd $SCHRODINGER/scisol-v*/'
+# make scisol - same stuff as above, but about scisol
+alias mkss='cd $SCHRODINGER/scisol*/ && make all'
+alias mkst='cd $SCHRODINGER/scisol*/ && make install_tests'
+# run scisol tests
+alias runssfept="cdst && make test TEST_ARGS=\"-n=auto --post-test test/fep\""
+alias runsst="cdst && make test TEST_ARGS=\"-n=auto --post-test test\""
+
+### desmond related aliases
+# cd to the desmond source
+alias cdds='cd $SCHRODINGER_SRC/desmond-gpu-src/'
+# cd to the desmond build
+alias cddb='cd $SCHRODINGER/desmond-v*/'
+# cd to the desmond tests
+alias cddt='cd $SCHRODINGER_SRC/desmond-gpu-src/test'
+# make desmond - same stuff as above, but about desmond
+alias mkd='cd $SCHRODINGER/desmond-*/ && make install_schrodinger_modules install_schrodinger_scripts'
+
+### glide/skate related aliases
+alias gtest='cd ${SCHRODINGER}/mmshare-v* && ${SCHRODINGER}/utilities/py.test -n auto test/schrodinger/glide python/test/modules/schrodinger/glide python/test/application/glide'
+alias GTIMER='SCHRODINGER_GLIDE_LOG=INFO:timer'
