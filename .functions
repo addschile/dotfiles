@@ -2,3 +2,8 @@
 #function cdl() {
 #         cd "$@" && ls
 #}
+
+ncu ()
+{
+    "${CUDA_HOME}/bin/ncu" --import-source=yes --target-processes=all --set full --nvtx "$@"
+}
